@@ -1,0 +1,19 @@
+CREATE DATABASE school;
+USE school;
+
+CREATE TABLE student(
+rollno INT PRIMARY KEY,
+name VARCHAR(50)
+);
+
+INSERT INTO student
+(rollno,name)
+VALUES
+(1,"JUHI"),
+(2,"ABC"),
+(3,"XYZ");
+
+SELECT * FROM student;
+
+SHOW DATABASES;
+SHOW TABLES;

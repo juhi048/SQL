@@ -1,0 +1,44 @@
+CREATE DATABASE university ;
+USE university;
+
+CREATE TABLE teacher
+( rollno INT PRIMARY KEY,
+name VARCHAR(50),
+marks INT NOT NULL,
+city VARCHAR(50),
+grade VARCHAR(1)
+);
+
+INSERT INTO teacher
+(rollno,name,marks,city,grade)
+VALUES
+(1,"JUHI",99,"MEERUT","O"),
+(2,"ABC",54,"NOIDA","C"),
+(3,"XYZ",89,"KERALA","A");
+
+INSERT INTO teacher
+(rollno,name,marks,city,grade)
+VALUES
+(4,"PQR",78,"NOIDA","B");
+
+SELECT * FROM teacher WHERE marks>90;
+SELECT marks FROM teacher;
+SELECT * FROM teacher WHERE marks>50 AND city="NOIDA";
+SELECT DISTINCT city FROM teacher;
+SELECT * FROM teacher WHERE marks BETWEEN 80 AND 90;
+SELECT * FROM teacher WHERE city = "NOIDA" OR city = "DELHI";
+SELECT * FROM teacher WHERE city IN ("NOIDA","DELHI");
+SELECT * FROM teacher WHERE city NOT IN ("MEERUT","AGRA");
+SELECT * FROM teacher LIMIT 3;
+SELECT * FROM teacher ORDER BY marks ASC;
+SELECT * FROM teacher ORDER BY rollno DESC;
+
+SELECT COUNT(name) FROM teacher;
+SELECT MIN(marks) FROM teacher;
+SELECT MAX(marks) FROM teacher;
+SELECT SUM(marks) FROM teacher;
+SELECT AVG(marks) FROM teacher;
+SELECT AVG(rollno) FROM teacher;
+
+SELECT city,name,count(name) FROM teacher GROUP BY city,name;
+SELECT city,name,grade,count(name) FROM teacher GROUP BY city,name,grade;
